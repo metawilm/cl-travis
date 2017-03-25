@@ -58,7 +58,7 @@ add_to_lisp_rc() {
     echo "$string" >> "$HOME/$rc"
 }
 
-ASDF_URL="https://raw.githubusercontent.com/luismbo/cl-travis/master/deps/asdf.lisp"
+ASDF_URL="https://raw.githubusercontent.com/metawilm/cl-travis/master/deps/asdf.lisp"
 ASDF_LOCATION="$HOME/asdf"
 
 install_asdf() {
@@ -100,15 +100,14 @@ install_script() {
     sudo mv "$tmp" "$path"
 }
 
-ABCL_TARBALL_URL1="https://common-lisp.net/project/armedbear/releases/1.3.2/abcl-bin-1.3.2.tar.gz"
-ABCL_TARBALL_URL2="http://cddr.org/ci/abcl-bin-1.3.2.tar.gz"
+ABCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/abcl-bin-1.4.0.tar.gz"
 ABCL_TARBALL="abcl.tar.gz"
 ABCL_DIR="$HOME/abcl"
 ABCL_SCRIPT="/usr/local/bin/abcl"
 
 install_abcl() {
     sudo apt-get install -y default-jre
-    get "$ABCL_TARBALL" "$ABCL_TARBALL_URL1" "$ABCL_TARBALL_URL2"
+    get "$ABCL_TARBALL" "$ABCL_TARBALL_URL1"
     unpack -z "$ABCL_TARBALL" "$ABCL_DIR"
 
     install_script "$ABCL_SCRIPT" \
@@ -118,14 +117,13 @@ install_abcl() {
     cim use abcl-system --default
 }
 
-SBCL_TARBALL_URL1="http://prdownloads.sourceforge.net/sbcl/sbcl-1.2.13-x86-64-linux-binary.tar.bz2"
-SBCL_TARBALL_URL2="http://cddr.org/ci/sbcl-1.2.13-x86-64-linux-binary.tar.bz2"
+SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.3.15-x86-64-linux-binary.tar.bz2"
 SBCL_TARBALL="sbcl.tar.bz2"
 SBCL_DIR="$HOME/sbcl"
 
 install_sbcl() {
     echo "Installing SBCL..."
-    get "$SBCL_TARBALL" "$SBCL_TARBALL_URL1" "$SBCL_TARBALL_URL2"
+    get "$SBCL_TARBALL" "$SBCL_TARBALL_URL1"
     unpack -j "$SBCL_TARBALL" "$SBCL_DIR"
     ( cd "$SBCL_DIR" && sudo bash install.sh )
 
@@ -149,9 +147,7 @@ install_sbcl32() {
     cim use sbcl-system --default
 }
 
-CCL_TARBALL_URL1="https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-linuxx86.tar.gz"
-CCL_TARBALL_URL2="http://kerno.org/~luis/ci/ccl-1.11-linuxx86.tar.gz"
-CCL_TARBALL_URL3="http://common-lisp.net/~loliveira/tarballs/ci/ccl-1.11-linuxx86.tar.gz"
+CCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/ccl-1.11-linuxx86.tar.gz"
 CCL_TARBALL="ccl.tar.gz"
 CCL_DIR="$HOME/ccl"
 CCL_SCRIPT_PREFIX="/usr/local/bin"
@@ -167,7 +163,7 @@ install_ccl() {
         bin="lx86cl64"
         script="ccl"
     fi
-    get "$CCL_TARBALL" "$CCL_TARBALL_URL1" "$CCL_TARBALL_URL2" "$CCL_TARBALL_URL3"
+    get "$CCL_TARBALL" "$CCL_TARBALL_URL1"
     unpack -z "$CCL_TARBALL" "$CCL_DIR"
 
     install_script "$CCL_SCRIPT_PREFIX/$script" "\"$CCL_DIR/$bin\" \"\$@\""
@@ -203,13 +199,12 @@ install_cmucl() {
     # XXX: no CIM support for CMUCL
 }
 
-ECL_TARBALL_URL1="http://common-lisp.net/~loliveira/tarballs/ecl-13.5.1-linux-amd64.tar.gz"
-ECL_TARBALL_URL2="http://kerno.org/~luis/ci/ecl-13.5.1-linux-amd64.tar.gz"
+ECL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/ecl-20170313.tgz"
 ECL_TARBALL="ecl.tar.gz"
 
 install_ecl() {
     echo "Installing ECL..."
-    get "$ECL_TARBALL" "$ECL_TARBALL_URL1" "$ECL_TARBALL_URL2"
+    get "$ECL_TARBALL" "$ECL_TARBALL_URL1"
     sudo tar -C / -xzf "$ECL_TARBALL"
 
     cim use ecl-system --default
