@@ -100,7 +100,8 @@ install_script() {
     sudo mv "$tmp" "$path"
 }
 
-ABCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/abcl-bin-1.4.0.tar.gz"
+#ABCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/abcl-bin-1.4.0.tar.gz"
+ABCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/abcl-bin-1.5.0.tar.gz"
 ABCL_TARBALL="abcl.tar.gz"
 ABCL_DIR="$HOME/abcl"
 ABCL_SCRIPT="/usr/local/bin/abcl"
@@ -117,7 +118,8 @@ install_abcl() {
     cim use abcl-system --default
 }
 
-SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.3.15-x86-64-linux-binary.tar.bz2"
+#SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.3.15-x86-64-linux-binary.tar.bz2"
+SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.4.1-x86-64-linux-binary.tar.bz2"
 SBCL_TARBALL="sbcl.tar.bz2"
 SBCL_DIR="$HOME/sbcl"
 
