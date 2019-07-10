@@ -203,7 +203,8 @@ install_cmucl() {
     # XXX: no CIM support for CMUCL
 }
 
-ECL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/ecl-20170313.tgz"
+#ECL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/ecl-20170313.tgz"
+ECL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/ecl-20191007.tgz"
 ECL_TARBALL="ecl.tar.gz"
 
 install_ecl() {
