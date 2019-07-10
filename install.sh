@@ -119,7 +119,9 @@ install_abcl() {
 }
 
 #SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.3.15-x86-64-linux-binary.tar.bz2"
-SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.4.1-x86-64-linux-binary.tar.bz2"
+#SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.4.1-x86-64-linux-binary.tar.bz2"
+SBCL_TARBALL_URL1="https://common-lisp.s3.amazonaws.com/sbcl-1.5.4-x86-64-linux-binary.tar.bz2"
+
 SBCL_TARBALL="sbcl.tar.bz2"
 SBCL_DIR="$HOME/sbcl"
 
